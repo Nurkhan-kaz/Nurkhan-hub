@@ -602,7 +602,7 @@ local function makeDraggable(frame)
 end
 
 local gui = Instance.new("ScreenGui")
-gui.Name = "NurkhanhubGUI"
+gui.Name = "NurkhanHubGUI"
 gui.ResetOnSpawn = false
 gui.DisplayOrder = 10
 gui.IgnoreGuiInset = true
@@ -666,12 +666,22 @@ local titleLbl = Instance.new("TextLabel", topbar)
 titleLbl.Size = UDim2.new(0, 160, 1, 0)
 titleLbl.Position = UDim2.new(0, 14, 0, 0)
 titleLbl.BackgroundTransparency = 1
-titleLbl.Text = "Nurkhan hub"
+titleLbl.Text = "NURKHAN HUB"
 titleLbl.TextColor3 = WHITE
 titleLbl.Font = Enum.Font.GothamBlack
 titleLbl.TextSize = 13
 titleLbl.TextXAlignment = Enum.TextXAlignment.Left
 titleLbl.ZIndex = 12
+
+local verLbl = Instance.new("TextLabel", topbar)
+verLbl.Size = UDim2.new(0, 130, 1, 0)
+verLbl.Position = UDim2.new(0, 100, 0, 0)
+verLbl.BackgroundTransparency = 1
+verLbl.TextColor3 = DIM
+verLbl.Font = Enum.Font.Gotham
+verLbl.TextSize = 9
+verLbl.TextXAlignment = Enum.TextXAlignment.Left
+verLbl.ZIndex = 12
 
 local minBtn = Instance.new("TextButton", topbar)
 minBtn.Size = UDim2.new(0, 26, 0, 26)
@@ -733,7 +743,7 @@ local nameTag = Instance.new("TextLabel", portrait)
 nameTag.Size = UDim2.new(1, -8, 0, 22)
 nameTag.Position = UDim2.new(0, 8, 1, -52)
 nameTag.BackgroundTransparency = 1
-nameTag.Text = "ENVY HUB"
+nameTag.Text = "NURKHAN HUB"
 nameTag.TextColor3 = WHITE
 nameTag.Font = Enum.Font.GothamBlack
 nameTag.TextSize = 13
@@ -2497,8 +2507,8 @@ loadConfig=function()
    if cfg.selectedIntroMusic then 
     State.selectedIntroMusic = cfg.selectedIntroMusic 
     task.defer(function() 
-        if getgenv().EnvyMusicBtn then 
-            getgenv().EnvyMusicBtn.Text = "Music " .. State.selectedIntroMusic 
+        if getgenv().NurkhanMusicBtn then 
+            getgenv().NurkhanMusicBtn.Text = "Music " .. State.selectedIntroMusic 
         end 
     end)
 end
@@ -2586,7 +2596,7 @@ local function setupOtherPlayerBillboard(player)
         if oldBB then oldBB:Destroy() end
         
         local bb = Instance.new("BillboardGui", head)
-        bb.Name = "EnvyOtherBB"
+        bb.Name = "NurkhanOtherBB"
         bb.Size = UDim2.new(0, 100, 0, 30)
         bb.StudsOffset = Vector3.new(0, 3, 0)
         bb.AlwaysOnTop = true
@@ -2638,8 +2648,8 @@ local function setupChar(char)
 
     local head=char:FindFirstChild("Head")
     if head then
-        local oldBB=head:FindFirstChild("EnvyMobileBB"); if oldBB then oldBB:Destroy() end
-        local bb=Instance.new("BillboardGui",head); bb.Name="EnvyMobileBB"
+        local oldBB=head:FindFirstChild("NurkhanMobileBB"); if oldBB then oldBB:Destroy() end
+        local bb=Instance.new("BillboardGui",head); bb.Name="NurkhanMobileBB"
         bb.Size=UDim2.new(0,160,0,52); bb.StudsOffset=Vector3.new(0,3,0); bb.AlwaysOnTop=true
         speedLbl=Instance.new("TextLabel",bb); speedLbl.Name="SpeedBillLbl"
         speedLbl.Size=UDim2.new(1,0,0,24); speedLbl.Position=UDim2.new(0,0,0,0); speedLbl.BackgroundTransparency=1
@@ -2647,11 +2657,7 @@ local function setupChar(char)
         speedLbl.Font=Enum.Font.GothamBlack; speedLbl.TextScaled=true
         speedLbl.TextStrokeTransparency=0; speedLbl.TextStrokeColor3=Color3.new(0,0,0)
         local discordLbl=Instance.new("TextLabel",bb)
-        discordLbl.Size=UDim2.new(1,0,0,28); discordLbl.Position=UDim2.new(0,0,0,26)
-        discordLbl.BackgroundTransparency=1; discordLbl.Text="discord.gg/envyhub"
-        discordLbl.TextColor3=Color3.fromRGB(255,255,255); discordLbl.Font=Enum.Font.GothamBold
-        discordLbl.TextScaled=true; discordLbl.TextStrokeTransparency=0.1
-        discordLbl.TextStrokeColor3=Color3.new(0,0,0)
+
     end
 
     if State.unwalkEnabled then task.wait(0.3); startUnwalk() end
@@ -2777,7 +2783,7 @@ task.spawn(function() while task.wait(10) do pcall(saveConfig) end end)
 -- Save on leave (BindToClose is server-only)
 Players.LocalPlayer.AncestryChanged:Connect(function() pcall(saveConfig) end)
 
-print("[Envy Hub] Loaded!")
+print("[Nurkhan hub] Loaded!")
 
 end)()
 
@@ -2827,7 +2833,7 @@ local function playIntroAnimation()
 	soulLabel.Position = UDim2.new(0, -350, 0.5, -95)
 	soulLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 	soulLabel.BackgroundTransparency = 1
-	soulLabel.Text = "Envy"
+	soulLabel.Text = "Nurkhan"
 	soulLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 	soulLabel.TextTransparency = 0
 	soulLabel.TextSize = 88
